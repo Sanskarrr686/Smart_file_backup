@@ -1,0 +1,68 @@
+### Submit a Backup Job
+POST http://localhost:8081/api/v1/backup/jobs
+Content-Type: application/json
+Idempotency-Key: idemp-req-001
+X-Correlation-ID: trace-001
+
+{
+  "job_id": "job-001",
+  "backup_id": "backup-001",
+  "user_id": "user-001",
+  "file_id": "file-001",
+  "backup_type": "BACKUP",
+  "source_path": "/documents/report.pdf",
+  "priority": 2,
+  "estimated_duration_ms": 10000,
+  "preferred_window": "ANY"
+}
+
+### List Jobs
+GET http://localhost:8081/api/v1/backup/jobs
+X-Correlation-ID: trace-002a
+
+### Get Job Status
+GET http://localhost:8081/api/v1/backup/jobs/job-001
+X-Correlation-ID: trace-002
+
+### Cancel Job
+POST http://localhost:8081/api/v1/backup/jobs/job-001/cancel
+X-Correlation-ID: trace-002b
+
+### List Workers
+GET http://localhost:8081/api/v1/workers
+
+### Trigger Scheduler (PRIORITY)
+POST http://localhost:8081/internal/v1/scheduler/run
+Content-Type: application/json
+
+{
+  "policy": "PRIORITY",
+  "quantum_ms": 2000
+}
+
+### Trigger Scheduler (RR)
+POST http://localhost:8081/internal/v1/scheduler/run
+Content-Type: application/json
+
+{
+  "policy": "RR",
+  "quantum_ms": 1000
+}
+
+### Acquire Lock
+POST http://localhost:8081/internal/v1/locks/acquire
+Content-Type: application/json
+X-Correlation-ID: trace-lock-001
+
+{
+  "file_id": "file-001",
+  "holder_id": "job-001",
+  "lock_mode": "EXCLUSIVE",
+  "lease_timeout_ms": 30000
+}
+
+### Get Metrics
+GET http://localhost:8081/api/v1/metrics/backup
+
+### Analyse Deadlocks
+POST http://localhost:8081/internal/v1/deadlocks/analyse

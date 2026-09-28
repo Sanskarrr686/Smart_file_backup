@@ -1,0 +1,197 @@
+openapi: 3.0.3
+info:
+  title: Team A - Backup Job Scheduler API
+  version: "1.1"
+  description: APNILEAP backup job scheduling module.
+servers:
+  - url: http://localhost:8081
+paths:
+  /:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: Service is up
+  /api/v1/backup/jobs:
+    get:
+      summary: List backup jobs
+      responses:
+        "200":
+          description: Job list
+    post:
+      summary: Submit a new backup/restore job
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: X-Correlation-ID
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BackupJobRequest'
+      responses:
+        "200":
+          description: Job submitted successfully
+  /api/v1/backup/jobs/{jobId}:
+    get:
+      summary: Get job status
+      parameters:
+        - in: path
+          name: jobId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Job details
+  /api/v1/backup/jobs/{jobId}/cancel:
+    post:
+      summary: Cancel a job
+      parameters:
+        - in: path
+          name: jobId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Job cancelled
+  /api/v1/backup/jobs/{jobId}/fail:
+    post:
+      summary: Mark a job failed
+      parameters:
+        - in: path
+          name: jobId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Job failed
+  /api/v1/workers:
+    get:
+      summary: List workers
+      responses:
+        "200":
+          description: Workers
+  /api/v1/workers/{workerId}/queue:
+    get:
+      summary: Get worker queue
+      parameters:
+        - in: path
+          name: workerId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Worker queue
+  /internal/v1/scheduler/run:
+    post:
+      summary: Trigger scheduling cycle manually
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchedulerRunRequest'
+      responses:
+        "200":
+          description: Scheduling complete
+  /internal/v1/locks/acquire:
+    post:
+      summary: Acquire exclusive file lock
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcquireLockRequest'
+      responses:
+        "200":
+          description: Lease acquired
+  /internal/v1/locks/{leaseId}:
+    delete:
+      summary: Release lock
+      parameters:
+        - in: path
+          name: leaseId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Released
+  /internal/v1/deadlocks/analyse:
+    post:
+      summary: Detect and recover deadlocks
+      responses:
+        "200":
+          description: Analysis result
+  /api/v1/metrics/backup:
+    get:
+      summary: Get scheduler metrics
+      responses:
+        "200":
+          description: Metrics snapshot
+  /api/v1/stream/backup:
+    get:
+      summary: SSE event stream
+      responses:
+        "200":
+          description: Event stream
+components:
+  schemas:
+    BackupJobRequest:
+      type: object
+      required: [job_id, backup_id, user_id, file_id, backup_type, priority, estimated_duration_ms]
+      properties:
+        job_id:
+          type: string
+        backup_id:
+          type: string
+        user_id:
+          type: string
+        file_id:
+          type: string
+        backup_type:
+          type: string
+          enum: [BACKUP, RESTORE]
+        source_path:
+          type: string
+        preferred_window:
+          type: string
+          enum: [ANY, DAY, NIGHT]
+        priority:
+          type: integer
+        estimated_duration_ms:
+          type: integer
+    SchedulerRunRequest:
+      type: object
+      properties:
+        policy:
+          type: string
+          enum: [FCFS, SJF, PRIORITY, RR]
+        quantum_ms:
+          type: integer
+    AcquireLockRequest:
+      type: object
+      required: [file_id, holder_id, lock_mode]
+      properties:
+        file_id:
+          type: string
+        holder_id:
+          type: string
+        lock_mode:
+          type: string
+          enum: [EXCLUSIVE]
+        lease_timeout_ms:
+          type: integer

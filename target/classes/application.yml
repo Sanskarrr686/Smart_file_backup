@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: team-a-scheduler
+  datasource:
+    url: jdbc:h2:mem:schedulerdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  h2:
+    console:
+      enabled: true
+
+scheduler:
+  workers:
+    initial-count: 3
+  lease:
+    default-timeout-ms: 30000
+  auto-run:
+    enabled: true
+    interval-ms: 2000
+    policy: PRIORITY
+    quantum-ms: 2000
+  deadlock:
+    enabled: true
+    interval-ms: 5000
+  starvation-wait-threshold-ms: 30000
+
+server:
+  port: 8081

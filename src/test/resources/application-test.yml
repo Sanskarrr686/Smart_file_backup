@@ -1,0 +1,5 @@
+scheduler:
+  auto-run:
+    enabled: false
+  deadlock:
+    enabled: false
