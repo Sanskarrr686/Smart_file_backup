@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Team D BFF - Test Console</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 960px; margin: 30px auto; background: #f8fafc; color: #0f172a; padding: 0 16px; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
+  select, input { padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
+  button { padding: 8px 14px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; }
+  button:hover { background: #1d4ed8; }
+  button.secondary { background: #475569; }
+  button.danger { background: #dc2626; }
+  pre { background: #0f172a; color: #d1fae5; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: 12px; min-height: 80px; white-space: pre-wrap; }
+  .section { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .status { font-size: 13px; color: #64748b; background: #e2e8f0; padding: 8px 12px; border-radius: 6px; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<h1>Team D BFF — Interactive Test Console</h1>
+<div class="status">Current token: <code id="tokenDisplay">none</code> &nbsp;|&nbsp; Current user: <code id="userDisplay">none</code></div>
+
+<div class="section">
+  <h3>1. Authentication & Session</h3>
+  <div class="row">
+    <select id="loginUser">
+      <option value="employee1|employee123">employee1 (Employee)</option>
+      <option value="admin1|admin123">admin1 (IT Admin)</option>
+      <option value="auditor1|auditor123">auditor1 (Auditor)</option>
+    </select>
+    <button onclick="doLogin()">Login</button>
+    <button class="secondary" onclick="doLogout()">Logout</button>
+    <button class="secondary" onclick="callApi('/api/v1/ui/me')">GET /me</button>
+  </div>
+  <div class="row" style="margin-top: 10px;">
+    <input type="password" id="curPass" placeholder="Current Password" value="employee123" />
+    <input type="password" id="newPass" placeholder="New Password" value="newpass123" />
+    <button class="secondary" onclick="changePassword()">Change Password</button>
+  </div>
+</div>
+
+<div class="section">
+  <h3>2. Dashboard Aggregation</h3>
+  <div class="row">
+    <button onclick="callApi('/api/v1/ui/dashboard')">GET /dashboard</button>
+  </div>
+</div>
+
+<div class="section">
+  <h3>3. File APIs</h3>
+  <div class="row">
+    <button onclick="callApi('/api/v1/ui/files')">GET /files</button>
+    <button onclick="callApi('/api/v1/ui/files/f_001')">GET /files/f_001</button>
+    <button onclick="callApi('/api/v1/ui/files/f_001/versions')">GET /files/f_001/versions</button>
+  </div>
+</div>
+
+<div class="section">
+  <h3>4. Backup APIs (with Idempotency)</h3>
+  <div class="row">
+    <button onclick="createBackup()">POST /backups (Create)</button>
+    <button onclick="createBackup()">POST /backups again (Same Key)</button>
+    <button onclick="callApi('/api/v1/ui/backups')">GET /backups</button>
+    <button onclick="callApi('/api/v1/ui/backups/bkp_55')">GET /backups/bkp_55</button>
+  </div>
+</div>
+
+<div class="section">
+  <h3>5. Restore Workflow</h3>
+  <div class="row">
+    <button onclick="callApi('/api/v1/ui/restores')">GET /restores</button>
+    <button onclick="callApi('/api/v1/ui/restores/rst_890')">GET /restores/rst_890</button>
+    <button onclick="callApi('/api/v1/ui/files/f_001/versions/v3/restore', { method: 'POST' })">POST /files/f_001/versions/v3/restore</button>
+  </div>
+</div>
+
+<div class="section">
+  <h3>6. User Management (IT Admin Only)</h3>
+  <div class="row">
+    <button onclick="callApi('/api/v1/ui/users')">GET /users</button>
+    <button onclick="callApi('/api/v1/ui/users/u_101')">GET /users/u_101</button>
+  </div>
+  <div class="row">
+    <input type="text" id="nuName" placeholder="Name" value="John Doe" />
+    <input type="text" id="nuUser" placeholder="Username" value="johndoe" />
+    <select id="nuRole">
+      <option value="Employee">Employee</option>
+      <option value="IT Admin">IT Admin</option>
+      <option value="Auditor">Auditor</option>
+    </select>
+    <input type="password" id="nuPass" placeholder="Password" value="temp123" />
+    <button onclick="createNewUser()">Create User</button>
+  </div>
+  <div class="row">
+    <input type="text" id="targetUserId" placeholder="Target User ID (e.g. u_101)" value="u_101" />
+    <button class="secondary" onclick="toggleUserStatus('DISABLED')">Disable User</button>
+    <button class="secondary" onclick="toggleUserStatus('ACTIVE')">Enable User</button>
+  </div>
+</div>
+
+<div class="section">
+  <h3>7. Reports & Audit</h3>
+  <div class="row">
+    <button onclick="callApi('/api/v1/ui/reports/storage')">GET /reports/storage</button>
+    <button onclick="callApi('/api/v1/ui/reports/backups')">GET /reports/backups</button>
+    <button onclick="callApi('/api/v1/ui/reports/integrity')">GET /reports/integrity</button>
+    <button onclick="callApi('/api/v1/ui/audit')">GET /audit</button>
+  </div>
+</div>
+
+<h3>Response Log</h3>
+<pre id="output">Click any button above to inspect response.</pre>
+
+<script>
+  let token = localStorage.getItem("td_token") || null;
+  let user = JSON.parse(localStorage.getItem("td_user") || "null");
+  let lastIdempotencyKey = null;
+
+  function updateStatus() {
+    document.getElementById("tokenDisplay").innerText = token ? token.slice(0, 24) + "..." : "none";
+    document.getElementById("userDisplay").innerText = user ? `${user.name} (${user.role})` : "none";
+  }
+  updateStatus();
+
+  function print(obj) {
+    document.getElementById("output").innerText = JSON.stringify(obj, null, 2);
+  }
+
+  async function doLogin() {
+    const [username, password] = document.getElementById("loginUser").value.split("|");
+    const res = await fetch("/api/v1/ui/session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Correlation-ID": "corr_test_login" },
+      body: JSON.stringify({ username, password }),
+    });
+    const body = await res.json();
+    print(body);
+    if (res.ok && body.data) {
+      token = body.data.token;
+      user = body.data.user;
+      localStorage.setItem("td_token", token);
+      localStorage.setItem("td_user", JSON.stringify(user));
+      updateStatus();
+    }
+  }
+
+  function doLogout() {
+    token = null;
+    user = null;
+    localStorage.removeItem("td_token");
+    localStorage.removeItem("td_user");
+    updateStatus();
+    print({ message: "Logged out locally. Token cleared." });
+  }
+
+  async function changePassword() {
+    const current_password = document.getElementById("curPass").value;
+    const new_password = document.getElementById("newPass").value;
+    callApi("/api/v1/ui/session/change-password", {
+      method: "POST",
+      body: JSON.stringify({ current_password, new_password }),
+    });
+  }
+
+  async function callApi(path, options = {}) {
+    const headers = {
+      "Content-Type": "application/json",
+      "X-Correlation-ID": "corr_test_" + Math.random().toString(16).slice(2, 8),
+      ...(token ? { Authorization: "Bearer " + token } : {}),
+      ...(options.headers || {}),
+    };
+    const res = await fetch(path, { ...options, headers });
+    const body = await res.json();
+    print({ status: res.status, ...body });
+  }
+
+  function createBackup() {
+    if (!lastIdempotencyKey) lastIdempotencyKey = "idem_" + Date.now();
+    callApi("/api/v1/ui/backups", {
+      method: "POST",
+      headers: { "Idempotency-Key": lastIdempotencyKey },
+      body: JSON.stringify({ file_id: "f_001", file_name: "budget.xlsx" }),
+    });
+  }
+
+  function createNewUser() {
+    const name = document.getElementById("nuName").value;
+    const username = document.getElementById("nuUser").value;
+    const role = document.getElementById("nuRole").value;
+    const password = document.getElementById("nuPass").value;
+    callApi("/api/v1/ui/users", {
+      method: "POST",
+      body: JSON.stringify({ name, username, role, password }),
+    });
+  }
+
+  function toggleUserStatus(status) {
+    const uid = document.getElementById("targetUserId").value;
+    callApi(`/api/v1/ui/users/${uid}/status`, {
+      method: "PATCH",
+      body: JSON.stringify({ status }),
+    });
+  }
+</script>
+</body>
+</html>

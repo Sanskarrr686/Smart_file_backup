@@ -1,0 +1,19 @@
+{
+  "name": "team-d-bff",
+  "version": "1.0.0",
+  "description": "Team D Backend-for-Frontend - Smart File Backup System",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "safe-start": "cd frontend && npm install && npm run build && cd .. && npm install && npm start",
+    "dev": "node src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.4",
+    "express": "^4.19.2",
+    "minio": "^8.0.7",
+    "multer": "^2.4.0"
+  }
+}

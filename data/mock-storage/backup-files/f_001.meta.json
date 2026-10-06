@@ -1,0 +1,10 @@
+{
+  "bucket": "backup-files",
+  "key": "f_001",
+  "contentType": "application/octet-stream",
+  "metadata": {},
+  "size": 22,
+  "checksum": "b52cd4b40202d01969523ef6666da0dbd952656429b7d3277d586c40f66bffa1",
+  "etag": "\"9a116e190d146cb76fe76a6c8612c9cf\"",
+  "uploadedAt": "2026-10-01T16:09:21.806Z"
+}

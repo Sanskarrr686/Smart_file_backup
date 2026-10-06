@@ -1,0 +1,10 @@
+{
+  "bucket": "backup-files",
+  "key": "files/2026/10/01/f_24117ad6/report.pdf",
+  "contentType": "application/octet-stream",
+  "metadata": {},
+  "size": 24,
+  "checksum": "56a84c53a90dec750406e782d40b11324dc915431d6f5fb6a013b88dd859eea7",
+  "etag": "\"a0248ce971eb6f0f4c063fcc962cdf21\"",
+  "uploadedAt": "2026-10-01T16:18:09.047Z"
+}
