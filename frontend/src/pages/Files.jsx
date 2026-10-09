@@ -20,6 +20,7 @@ import {
   UploadCloud,
   HardDrive,
   Download,
+  ShieldCheck,
 } from "lucide-react";
 
 export function Files() {
@@ -31,6 +32,7 @@ export function Files() {
   const [backupLoading, setBackupLoading] = useState({});
   const [isUploadOpen, setIsUploadOpen] = useState(false);
   const [downloadLoading, setDownloadLoading] = useState({});
+  const [verifyLoading, setVerifyLoading] = useState({});
 
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -80,6 +82,18 @@ export function Files() {
       addToast(err.message || "Failed to generate presigned storage URL.", "error");
     } finally {
       setDownloadLoading((prev) => ({ ...prev, [file.file_id]: false }));
+    }
+  };
+
+  const handleVerifyIntegrity = async (file) => {
+    setVerifyLoading((prev) => ({ ...prev, [file.file_id]: true }));
+    try {
+      const res = await api.verifyPreview({ file_id: file.file_id, name: file.name });
+      addToast(`Integrity preview for '${file.name}': ${res?.status || "VERIFIED"}`, "success");
+    } catch (err) {
+      addToast(err.message || "Failed to run integrity verification preview.", "error");
+    } finally {
+      setVerifyLoading((prev) => ({ ...prev, [file.file_id]: false }));
     }
   };
 
@@ -217,6 +231,16 @@ export function Files() {
                             Access
                           </Button>
                         )}
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          icon={ShieldCheck}
+                          loading={verifyLoading[file.file_id]}
+                          onClick={() => handleVerifyIntegrity(file)}
+                          title="Verify chunk integrity preview"
+                        >
+                          Verify
+                        </Button>
                         <Button
                           variant="secondary"
                           size="sm"

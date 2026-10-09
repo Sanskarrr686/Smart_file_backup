@@ -22,6 +22,9 @@ const config = {
     baseUrl: process.env.TEAM_C_BASE_URL || "",
   },
 
+  jwtSecret: process.env.JWT_SECRET || "dev-jwt-secret-key-change-in-production-123456",
+  corsAllowedOrigins: process.env.CORS_ALLOWED_ORIGINS || "http://localhost:4000,http://localhost:3000",
+
   storage: {
     mode: process.env.STORAGE_MODE || "mock",
     endpoint: process.env.STORAGE_ENDPOINT || "http://localhost:9000",

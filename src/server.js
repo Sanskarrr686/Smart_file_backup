@@ -4,6 +4,7 @@
 
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
 const path = require("path");
 
 const correlationId = require("./middleware/correlationId");
@@ -24,8 +25,27 @@ const searchRoutes = require("./routes/searchRoutes");
 const app = express();
 const config = require("./config/env");
 
-app.use(cors());
-app.use(express.json());
+app.use(helmet({ contentSecurityPolicy: false }));
+
+const allowedOrigins = (config.corsAllowedOrigins || "http://localhost:4000,http://localhost:3000")
+  .split(",")
+  .map((o) => o.trim());
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(null, false);
+      }
+    },
+    credentials: true,
+  })
+);
+
+app.use(express.json({ limit: "1mb" }));
+app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 app.use(correlationId); // runs on EVERY request, before any route
 
 // Serve built React frontend assets if available, fallback to public test console

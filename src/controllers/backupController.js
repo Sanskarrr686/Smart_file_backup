@@ -29,7 +29,8 @@ exports.createBackup = async (req, res, next) => {
 
     const result = await backupService.createBackup(
       { file_id, file_name, user: req.user },
-      idempotencyKey
+      idempotencyKey,
+      { correlationId: req.correlationId }
     );
 
     const statusCode = result.cached ? 200 : 201;

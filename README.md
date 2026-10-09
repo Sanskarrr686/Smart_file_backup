@@ -91,7 +91,7 @@ npm run dev
 
 ## 4. Automated Testing
 
-Run the automated backend test suite (48 assertions covering 47 test cases):
+Run the automated backend test suite (64 test cases covering auth, RBAC, files, backups, restores, reports, audit, user management, storage adapters, error handling, SSE stream, and multipart upload):
 
 ```bash
 npm test
@@ -100,22 +100,27 @@ npm test
 Output:
 ```
 ✔ AUTH: 1. valid login
-✔ AUTH: 2. invalid username
-✔ AUTH: 3. invalid password
 ...
-✔ ERRORS: 47. 404
-ℹ pass 48 / fail 0
+✔ STORAGE: 1. Mock storage upload, get, exists, metadata and delete
+✔ STORAGE: 2. Storage client adapter selection based on mode
+✔ STORAGE: 3. Minio storage adapter unit error handling when unreachable
+✔ UPLOAD: 9. Presigned download URL generation for Team B / clients
+ℹ tests 64
+ℹ pass 64 / fail 0
 ```
 
 ---
 
 ## 5. Environment Configuration
 
-Configured via `.env`:
+Configured via `.env` (see `.env.example` for full reference):
 
 ```env
 PORT=4000
 API_VERSION=v1
+
+JWT_SECRET=dev-secret-key-change-in-production-123456
+CORS_ALLOWED_ORIGINS=http://localhost:4000,http://localhost:3000
 
 TEAM_A_MODE=mock
 TEAM_B_MODE=mock
@@ -124,7 +129,25 @@ TEAM_C_MODE=mock
 TEAM_A_BASE_URL=http://localhost:5001
 TEAM_B_BASE_URL=http://localhost:5002
 TEAM_C_BASE_URL=http://localhost:5003
+
+STORAGE_MODE=mock
+STORAGE_ENDPOINT=http://localhost:9000
+STORAGE_REGION=us-east-1
+STORAGE_ACCESS_KEY=minioadmin
+STORAGE_SECRET_KEY=minioadmin
+STORAGE_BUCKET=backup-files
+STORAGE_USE_SSL=false
+STORAGE_MAX_SIZE_BYTES=104857600
 ```
+
+### Switching to Real Upstream APIs
+
+To connect Team D BFF to live microservices deployed by Team A, Team B, or Team C:
+1. Update `.env` to set `TEAM_X_MODE=real` for each reachable service (e.g. `TEAM_A_MODE=real`).
+2. Provide the corresponding base URL in `.env` (e.g. `TEAM_A_BASE_URL=http://10.0.0.5:5001`).
+3. Restart the BFF server (`npm start`).
+
+No code changes are needed. If an upstream service is unready or unreachable, keeping `TEAM_X_MODE=mock` will seamlessly fall back to local in-memory simulation without affecting presentation or demo availability.
 
 ---
 

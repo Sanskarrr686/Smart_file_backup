@@ -816,6 +816,430 @@
       "state": "COMPLETED",
       "date": "2026-10-02T09:08:22.308Z",
       "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_78da15",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "FAILED",
+      "date": "2026-10-07T04:06:01.952Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_ffc583",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:06:01.957Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_966cfa",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:06:01.960Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_f6ec8c",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:06:01.963Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_1c9e4e",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:12:50.784Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_f37798",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "FAILED",
+      "date": "2026-10-07T04:12:50.789Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_6c3060",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:12:50.793Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_9b7072",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:12:50.795Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_129b96",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:19:50.068Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_4f7f47",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:19:50.073Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_7e3962",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:19:50.077Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_4dc3e3",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:19:50.079Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_db0926",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:22:42.512Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_07eae5",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:22:42.519Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_686a6d",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:22:42.523Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_3eee4d",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:22:42.526Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_f42e1f",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:30:59.873Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_6f0b56",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "FAILED",
+      "date": "2026-10-07T04:30:59.883Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_1b7a60",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:30:59.890Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_684f9c",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:30:59.894Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_5b51dd",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:33:37.399Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_c30eb4",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:33:37.404Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_419609",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:33:37.408Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_a6d9e2",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:33:37.410Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_0cbd84",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:34:58.901Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_447af8",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:34:58.907Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_ebf4a8",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:34:58.910Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_2de44c",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:34:58.913Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_51c76a",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:36:34.375Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_b5dbf5",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:36:34.381Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_b6b618",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "FAILED",
+      "date": "2026-10-07T04:36:34.385Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_9d0ebd",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T04:36:34.388Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_281548",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T05:23:43.528Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_9c9e59",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T05:23:43.536Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_cd39fd",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T05:23:43.542Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_f218db",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-07T05:23:43.545Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_b0e026",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-08T12:26:20.968Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_ae5f23",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-08T12:26:20.973Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_0f1c9f",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "FAILED",
+      "date": "2026-10-08T12:26:20.977Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_2f6cdd",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-08T12:26:20.980Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_fb5648",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T08:36:58.626Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_aa435b",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:13:05.816Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_9a8ffd",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:13:05.824Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_4fee3c",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:13:05.832Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_30744f",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:13:05.838Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_6b5034",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:28:13.754Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_ca1907",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:28:13.763Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_c8b766",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:28:13.773Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_49a2d5",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:28:13.778Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_347d1f",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "FAILED",
+      "date": "2026-10-09T17:36:50.461Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_349759",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:36:50.470Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_5894ee",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:36:50.477Z",
+      "user_id": "u_101"
+    },
+    {
+      "backup_id": "bkp_1db930",
+      "file_id": "f_001",
+      "file_name": "budget.xlsx",
+      "state": "COMPLETED",
+      "date": "2026-10-09T17:36:50.480Z",
+      "user_id": "u_101"
     }
   ],
   "restores": [
@@ -962,6 +1386,136 @@
       "user_id": "u_101",
       "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
       "expires_at": "2026-10-02T10:08:22.321Z"
+    },
+    {
+      "restore_id": "rst_002cc2",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:06:01.970Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:06:01.972Z"
+    },
+    {
+      "restore_id": "rst_39f70a",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:12:50.803Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:12:50.804Z"
+    },
+    {
+      "restore_id": "rst_f1dfe0",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:19:50.087Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:19:50.089Z"
+    },
+    {
+      "restore_id": "rst_b183f5",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:22:42.534Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:22:42.535Z"
+    },
+    {
+      "restore_id": "rst_6b4f05",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:30:59.904Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:30:59.906Z"
+    },
+    {
+      "restore_id": "rst_0d9358",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:33:37.416Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:33:37.418Z"
+    },
+    {
+      "restore_id": "rst_21ebbc",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:34:58.920Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:34:58.921Z"
+    },
+    {
+      "restore_id": "rst_1d4ebc",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T04:36:34.396Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T05:36:34.398Z"
+    },
+    {
+      "restore_id": "rst_73fe39",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-07T05:23:43.558Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-07T06:23:43.560Z"
+    },
+    {
+      "restore_id": "rst_cadb78",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-08T12:26:20.988Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-08T13:26:20.990Z"
+    },
+    {
+      "restore_id": "rst_5b5151",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-09T17:13:05.856Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-09T18:13:05.858Z"
+    },
+    {
+      "restore_id": "rst_9109ec",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-09T17:28:13.789Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-09T18:28:13.792Z"
+    },
+    {
+      "restore_id": "rst_bb1aa3",
+      "file_id": "f_001",
+      "version_id": "v3",
+      "state": "COMPLETED",
+      "requested_at": "2026-10-09T17:36:50.496Z",
+      "user_id": "u_101",
+      "download_url": "http://localhost:4000/api/v1/ui/files/download?bucket=backup-files&key=v3&token=mock-token-u_101-default",
+      "expires_at": "2026-10-09T18:36:50.499Z"
     }
   ],
   "storageReport": {
@@ -982,6 +1536,1194 @@
     ]
   },
   "auditLog": [
+    {
+      "timestamp": "2026-10-09T17:36:52.194Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_1db930",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:52.190Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_5894ee",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:52.185Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_349759",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:52.089Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_FAILED",
+      "resource": "bkp_347d1f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:50.501Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_bb1aa3",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:50.497Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_bb1aa3",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:50.482Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_1db930",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:50.478Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_5894ee",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:50.472Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_349759",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:36:50.463Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_347d1f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:15.456Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_49a2d5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:15.447Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_c8b766",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:15.441Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_ca1907",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:15.433Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_6b5034",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:13.793Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_9109ec",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:13.791Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_9109ec",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:13.779Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_49a2d5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:13.775Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_c8b766",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:13.763Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_ca1907",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:28:13.755Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_6b5034",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:07.537Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_30744f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:07.533Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_4fee3c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:07.528Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_9a8ffd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:07.523Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_aa435b",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:05.859Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_5b5151",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:05.857Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_5b5151",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:05.839Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_30744f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:05.834Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_4fee3c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:05.825Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_9a8ffd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T17:13:05.817Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_aa435b",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T08:37:00.247Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_fb5648",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-09T08:36:58.631Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_fb5648",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:22.611Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_2f6cdd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:22.610Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_FAILED",
+      "resource": "bkp_0f1c9f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:22.608Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_ae5f23",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:22.577Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_b0e026",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:20.990Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_cadb78",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:20.989Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_cadb78",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:20.981Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_2f6cdd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:20.978Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_0f1c9f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:20.973Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_ae5f23",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-08T12:26:20.968Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_b0e026",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:45.254Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_f218db",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:45.251Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_cd39fd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:45.249Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_9c9e59",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:45.245Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_281548",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:43.561Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_73fe39",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:43.559Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_73fe39",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:43.546Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_f218db",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:43.543Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_cd39fd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:43.537Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_9c9e59",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T05:23:43.529Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_281548",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:36.009Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_9d0ebd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:36.008Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_FAILED",
+      "resource": "bkp_b6b618",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:36.005Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_b5dbf5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:36.002Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_51c76a",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:34.398Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_1d4ebc",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:34.397Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_1d4ebc",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:34.388Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_9d0ebd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:34.386Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_b6b618",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:34.381Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_b5dbf5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:36:34.376Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_51c76a",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:35:00.539Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_2de44c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:35:00.538Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_ebf4a8",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:35:00.536Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_447af8",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:35:00.521Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_0cbd84",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:34:58.922Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_21ebbc",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:34:58.921Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_21ebbc",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:34:58.913Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_2de44c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:34:58.911Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_ebf4a8",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:34:58.907Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_447af8",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:34:58.902Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_0cbd84",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:39.024Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_a6d9e2",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:39.023Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_419609",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:39.021Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_c30eb4",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:39.019Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_5b51dd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:37.418Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_0d9358",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:37.417Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_0d9358",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:37.411Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_a6d9e2",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:37.409Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_419609",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:37.405Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_c30eb4",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:33:37.400Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_5b51dd",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:31:01.518Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_684f9c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:31:01.511Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_1b7a60",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:31:01.505Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_FAILED",
+      "resource": "bkp_6f0b56",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:31:01.492Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_f42e1f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:30:59.907Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_6b4f05",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:30:59.905Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_6b4f05",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:30:59.894Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_684f9c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:30:59.891Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_1b7a60",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:30:59.885Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_6f0b56",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:30:59.874Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_f42e1f",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:44.135Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_3eee4d",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:44.134Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_686a6d",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:44.133Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_07eae5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:44.131Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_db0926",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:42.535Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_b183f5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:42.534Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_b183f5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:42.526Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_3eee4d",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:42.524Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_686a6d",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:42.520Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_07eae5",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:22:42.513Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_db0926",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:51.713Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_4dc3e3",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:51.691Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_7e3962",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:51.689Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_4f7f47",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:51.688Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_129b96",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:50.089Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_f1dfe0",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:50.088Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_f1dfe0",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:50.080Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_4dc3e3",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:50.077Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_7e3962",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:50.073Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_4f7f47",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:19:50.069Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_129b96",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:52.418Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_9b7072",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:52.417Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_6c3060",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:52.416Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_FAILED",
+      "resource": "bkp_f37798",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:52.414Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_1c9e4e",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:50.805Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_39f70a",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:50.804Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_39f70a",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:50.795Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_9b7072",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:50.793Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_6c3060",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:50.790Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_f37798",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:12:50.785Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_1c9e4e",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:03.581Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_f6ec8c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:03.580Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_966cfa",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:03.579Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_COMPLETED",
+      "resource": "bkp_ffc583",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:03.577Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_FAILED",
+      "resource": "bkp_78da15",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:01.972Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_COMPLETED",
+      "resource": "rst_002cc2",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:01.971Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "RESTORE_STARTED",
+      "resource": "rst_002cc2",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:01.963Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_f6ec8c",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:01.961Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_966cfa",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:01.957Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_ffc583",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-07T04:06:01.953Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "BACKUP_STARTED",
+      "resource": "bkp_78da15",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
     {
       "timestamp": "2026-10-06T11:48:37.440Z",
       "user": "admin1",
@@ -2199,6 +3941,84 @@
       "action": "USER_CREATED",
       "target": "u_642",
       "timestamp": "2026-10-02T09:08:22.375Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_382",
+      "timestamp": "2026-10-07T04:06:01.995Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_309",
+      "timestamp": "2026-10-07T04:12:50.829Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_996",
+      "timestamp": "2026-10-07T04:19:50.114Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_586",
+      "timestamp": "2026-10-07T04:22:42.559Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_143",
+      "timestamp": "2026-10-07T04:30:59.957Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_913",
+      "timestamp": "2026-10-07T04:33:37.506Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_746",
+      "timestamp": "2026-10-07T04:34:59.007Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_208",
+      "timestamp": "2026-10-07T04:36:34.485Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_648",
+      "timestamp": "2026-10-07T05:23:43.696Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_765",
+      "timestamp": "2026-10-08T12:26:21.078Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_307",
+      "timestamp": "2026-10-09T17:13:05.996Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_699",
+      "timestamp": "2026-10-09T17:28:13.933Z"
+    },
+    {
+      "actor": "admin1",
+      "action": "USER_CREATED",
+      "target": "u_909",
+      "timestamp": "2026-10-09T17:36:50.650Z"
     }
   ],
   "notifications": [
@@ -2757,6 +4577,600 @@
       "message": "Backup for 'budget.xlsx' completed successfully.",
       "type": "success",
       "timestamp": "2026-10-02T09:08:23.931Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_c8cc91",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_002cc2' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:06:01.973Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_f451be",
+      "title": "Backup Failed",
+      "message": "Backup for 'budget.xlsx' failed during execution.",
+      "type": "error",
+      "timestamp": "2026-10-07T04:06:03.577Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_2b7bcc",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:06:03.579Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_0a6aaf",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:06:03.581Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_2a1e0a",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:06:03.582Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_c9377f",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_39f70a' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:12:50.805Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_4d54d3",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:12:52.414Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_2a50cf",
+      "title": "Backup Failed",
+      "message": "Backup for 'budget.xlsx' failed during execution.",
+      "type": "error",
+      "timestamp": "2026-10-07T04:12:52.416Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_a14905",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:12:52.417Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_c693ce",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:12:52.419Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_52288a",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_f1dfe0' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:19:50.090Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_393488",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:19:51.689Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_a53119",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:19:51.690Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_e4b632",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:19:51.691Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_9f5808",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:19:51.714Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_e930d7",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_b183f5' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:22:42.536Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_2410cf",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:22:44.132Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_1eddf2",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:22:44.133Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_d3dd8b",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:22:44.135Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_ddeea2",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:22:44.136Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_ba9ec5",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_6b4f05' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:30:59.907Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_05b1e0",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:31:01.495Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_9796b2",
+      "title": "Backup Failed",
+      "message": "Backup for 'budget.xlsx' failed during execution.",
+      "type": "error",
+      "timestamp": "2026-10-07T04:31:01.508Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_2fdbe6",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:31:01.512Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_6f0269",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:31:01.519Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_07ac62",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_0d9358' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:33:37.419Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_815dc7",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:33:39.020Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_4f5a27",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:33:39.022Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_8a3b89",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:33:39.023Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_8dc897",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:33:39.024Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_db85c3",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_21ebbc' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:34:58.922Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_f89a6a",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:35:00.521Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_4d7a33",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:35:00.537Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_b0e615",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:35:00.538Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_9155c2",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:35:00.540Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_cbbb74",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_1d4ebc' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:36:34.398Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_40c49f",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:36:36.003Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_707c8a",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:36:36.007Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_90af99",
+      "title": "Backup Failed",
+      "message": "Backup for 'budget.xlsx' failed during execution.",
+      "type": "error",
+      "timestamp": "2026-10-07T04:36:36.008Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_39b1ad",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T04:36:36.009Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_9e9a86",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_73fe39' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-07T05:23:43.563Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_1eda3d",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T05:23:45.246Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_04e403",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T05:23:45.250Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_5d7bf6",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T05:23:45.253Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_c25c26",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-07T05:23:45.255Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_9bc861",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_cadb78' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-08T12:26:20.991Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_c2177c",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-08T12:26:22.578Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_6de54c",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-08T12:26:22.609Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_78af09",
+      "title": "Backup Failed",
+      "message": "Backup for 'budget.xlsx' failed during execution.",
+      "type": "error",
+      "timestamp": "2026-10-08T12:26:22.610Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_f7350a",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-08T12:26:22.611Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_f33fbb",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T08:37:00.248Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_c569bf",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_5b5151' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:13:05.860Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_d04664",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:13:07.526Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_73d7b3",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:13:07.530Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_aa5404",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:13:07.535Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_2bb1a2",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:13:07.538Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_af7196",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_9109ec' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:28:13.793Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_3f9df1",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:28:15.436Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_81619a",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:28:15.443Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_ce770e",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:28:15.450Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_acd89c",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:28:15.458Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_59e17c",
+      "title": "Restore Completed",
+      "message": "Restore 'rst_bb1aa3' ready for download.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:36:50.502Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_2b42d7",
+      "title": "Backup Failed",
+      "message": "Backup for 'budget.xlsx' failed during execution.",
+      "type": "error",
+      "timestamp": "2026-10-09T17:36:52.090Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_6c3723",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:36:52.188Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_f9bc21",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:36:52.192Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_d5fee5",
+      "title": "Backup Completed",
+      "message": "Backup for 'budget.xlsx' completed successfully.",
+      "type": "success",
+      "timestamp": "2026-10-09T17:36:52.195Z",
       "read": false,
       "user_id": "u_101"
     }

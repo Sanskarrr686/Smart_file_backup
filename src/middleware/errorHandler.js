@@ -1,9 +1,13 @@
 // src/middleware/errorHandler.js
 
+const { sanitizeString } = require("../utils/redact");
+
 function errorHandler(err, req, res, next) {
   // Never log stack traces to client response, but log to server console for debugging if needed
   if (process.env.NODE_ENV !== "test") {
-    console.error(`[Error] [${req.method} ${req.url}] status:${err.status || 500} code:${err.code || "INTERNAL_ERROR"}: ${err.message}`);
+    const safeUrl = sanitizeString(req.url);
+    const safeMsg = sanitizeString(err.message);
+    console.error(`[Error] [${req.method} ${safeUrl}] status:${err.status || 500} code:${err.code || "INTERNAL_ERROR"}: ${safeMsg}`);
   }
 
   const statusCode = err.status || err.upstreamStatus || 500;

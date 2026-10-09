@@ -1,6 +1,7 @@
 // src/services/restoreService.js
 
 const teamCClient = require("../clients/teamCClient");
+const teamAClient = require("../clients/teamAClient");
 const storageClient = require("../storage/storageClient");
 const config = require("../config/env");
 const db = require("../utils/db");
@@ -89,9 +90,12 @@ async function processRestoreRetrieval(restoreRecord, targetVersion, file, user)
   return restoreRecord;
 }
 
-async function listRestores(user) {
-  const items = await teamCClient.getRestores(user.user_id, user.role);
-  return { items };
+async function listRestores(user, options = {}) {
+  const res = await teamCClient.getRestores(user.user_id, user.role, options);
+  if (res && res.upstream_unavailable) {
+    return res;
+  }
+  return { items: Array.isArray(res) ? res : (res?.items || []) };
 }
 
 async function getRestoreById(restoreId, user) {
@@ -120,7 +124,7 @@ async function getRestoreById(restoreId, user) {
   return restore;
 }
 
-async function createRestore(fileId, versionId, user) {
+async function createRestore(fileId, versionId, user, options = {}) {
   if (!fileId || !versionId) {
     const err = new Error("fileId and versionId are required.");
     err.status = 400;
@@ -160,7 +164,25 @@ async function createRestore(fileId, versionId, user) {
     file_id: fileId,
     version_id: versionId,
     user_id: user.user_id,
-  });
+  }, options);
+
+  if (config.teamA.mode === "real") {
+    try {
+      await teamAClient.submitJob({
+        job_id: `job_${restoreOp.restore_id}`,
+        backup_id: restoreOp.restore_id,
+        user_id: user.user_id,
+        file_id: fileId,
+        backup_type: "RESTORE",
+        source_path: targetVersion?.storage_key || file?.storage_key || `/files/${file.name}`,
+        preferred_window: "ANY",
+        priority: "HIGH",
+        estimated_duration_ms: 3000,
+      }, { correlationId: options?.correlationId });
+    } catch (err) {
+      console.error("Failed to submit restore job to Team A:", err.message);
+    }
+  }
 
   // 5. Execute retrieval step
   const updatedRestore = await processRestoreRetrieval(restoreOp, targetVersion, file, user);

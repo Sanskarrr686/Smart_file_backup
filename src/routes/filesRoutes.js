@@ -13,5 +13,6 @@ router.get("/files/download", auth, roleGuard(["Employee", "IT Admin", "Auditor"
 router.get("/files/:fileId", auth, roleGuard(["Employee", "IT Admin", "Auditor"]), filesController.getFile);
 router.get("/files/:fileId/download-url", auth, roleGuard(["Employee", "IT Admin", "Auditor"]), filesController.getDownloadUrl);
 router.get("/files/:fileId/versions", auth, roleGuard(["Employee", "IT Admin", "Auditor"]), filesController.getVersions);
+router.post("/verify/preview", auth, roleGuard(["Employee", "IT Admin", "Auditor"]), filesController.verifyPreview);
 
 module.exports = router;

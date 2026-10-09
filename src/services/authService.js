@@ -1,11 +1,20 @@
 // src/services/authService.js
 
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const teamCClient = require("../clients/teamCClient");
 const usersMock = require("../mocks/users");
 const config = require("../config/env");
 
-function generateMockToken(user) {
-  return `mock-token-${user.user_id}-${Date.now()}`;
+function generateJwtToken(user) {
+  return jwt.sign(
+    {
+      user_id: user.user_id,
+      role: user.role,
+    },
+    config.jwtSecret,
+    { expiresIn: "8h" }
+  );
 }
 
 async function login(username, password) {
@@ -23,7 +32,19 @@ async function login(username, password) {
     user = await teamCClient.findUserByUsername(username);
   }
 
-  if (!user || user.password !== password) {
+  if (!user) {
+    const err = new Error("Username or password is incorrect.");
+    err.status = 401;
+    err.code = "INVALID_CREDENTIALS";
+    throw err;
+  }
+
+  const isValidPassword =
+    user.password && (user.password.startsWith("$2a$") || user.password.startsWith("$2b$"))
+      ? bcrypt.compareSync(password, user.password)
+      : user.password === password;
+
+  if (!isValidPassword) {
     const err = new Error("Username or password is incorrect.");
     err.status = 401;
     err.code = "INVALID_CREDENTIALS";
@@ -37,7 +58,7 @@ async function login(username, password) {
     throw err;
   }
 
-  const token = generateMockToken(user);
+  const token = generateJwtToken(user);
   const safeUser = {
     user_id: user.user_id,
     name: user.name,

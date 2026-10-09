@@ -25,7 +25,7 @@ exports.getRestore = async (req, res, next) => {
 exports.createRestore = async (req, res, next) => {
   try {
     const { fileId, versionId } = req.params;
-    const restoreOp = await restoreService.createRestore(fileId, versionId, req.user);
+    const restoreOp = await restoreService.createRestore(fileId, versionId, req.user, { correlationId: req.correlationId });
     return success(res, restoreOp, 201);
   } catch (err) {
     next(err);

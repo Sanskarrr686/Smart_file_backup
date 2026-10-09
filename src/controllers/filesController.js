@@ -84,3 +84,13 @@ exports.downloadFile = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.verifyPreview = async (req, res, next) => {
+  try {
+    const teamBClient = require("../clients/teamBClient");
+    const result = await teamBClient.verifyIntegrity(req.body, { correlationId: req.correlationId });
+    return success(res, result);
+  } catch (err) {
+    next(err);
+  }
+};

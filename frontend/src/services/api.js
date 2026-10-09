@@ -171,4 +171,10 @@ export const api = {
     request(`/restores/${encodeURIComponent(restoreId)}/retry`, {
       method: "POST",
     }),
+  getIntegrity: () => request("/integrity"),
+  verifyPreview: (payload) =>
+    request("/verify/preview", {
+      method: "POST",
+      body: JSON.stringify(payload || {}),
+    }),
 };

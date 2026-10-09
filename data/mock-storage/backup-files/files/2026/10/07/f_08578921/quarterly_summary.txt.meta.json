@@ -1,0 +1,10 @@
+{
+  "bucket": "backup-files",
+  "key": "files/2026/10/07/f_08578921/quarterly_summary.txt",
+  "contentType": "text/plain",
+  "metadata": {},
+  "size": 39,
+  "checksum": "b02499a268fd4bcaaa8ee694b3ded9451ffbe0957cd768a72bdabcea31c6fd98",
+  "etag": "\"c07008d79d9f6de038bbd76c29b1ad01\"",
+  "uploadedAt": "2026-10-07T04:06:01.921Z"
+}

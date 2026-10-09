@@ -2,6 +2,8 @@
 
 const teamCClient = require("../clients/teamCClient");
 const teamBClient = require("../clients/teamBClient");
+const teamAClient = require("../clients/teamAClient");
+const config = require("../config/env");
 const db = require("../utils/db");
 const sseManager = require("../utils/sse");
 const auditService = require("./auditService");
@@ -45,9 +47,12 @@ function triggerBackupProgression(backup, user) {
   if (timer1.unref) timer1.unref();
 }
 
-async function listBackups(user) {
-  const items = await teamCClient.getBackups(user.user_id, user.role);
-  return { items };
+async function listBackups(user, options = {}) {
+  const res = await teamCClient.getBackups(user.user_id, user.role, options);
+  if (res && res.upstream_unavailable) {
+    return res;
+  }
+  return { items: Array.isArray(res) ? res : (res?.items || []) };
 }
 
 async function getBackupById(backupId, user) {
@@ -92,7 +97,7 @@ async function getBackupById(backupId, user) {
   };
 }
 
-async function createBackup({ file_id, file_name, user }, idempotencyKey) {
+async function createBackup({ file_id, file_name, user }, idempotencyKey, options = {}) {
   if (!idempotencyKey) {
     const err = new Error("Idempotency-Key header is required.");
     err.status = 400;
@@ -132,7 +137,7 @@ async function createBackup({ file_id, file_name, user }, idempotencyKey) {
     file_id,
     file_name,
     user_id: user.user_id,
-  });
+  }, options);
 
   // Store in idempotency cache
   idempotencyStore.set(idempotencyKey, newBackup);
@@ -145,8 +150,26 @@ async function createBackup({ file_id, file_name, user }, idempotencyKey) {
     resource: newBackup.backup_id,
   }).catch(() => {});
 
-  // Trigger background progression QUEUED -> RUNNING -> COMPLETED/FAILED
-  triggerBackupProgression(newBackup, user);
+  if (config.teamA.mode === "real") {
+    try {
+      await teamAClient.submitJob({
+        job_id: `job_${newBackup.backup_id}`,
+        backup_id: newBackup.backup_id,
+        user_id: user.user_id,
+        file_id,
+        backup_type: "BACKUP",
+        source_path: file.storage_key || `/files/${file_name}`,
+        preferred_window: "ANY",
+        priority: "NORMAL",
+        estimated_duration_ms: 5000,
+      }, { idempotencyKey, correlationId: options?.correlationId });
+    } catch (err) {
+      console.error("Failed to submit backup job to Team A:", err.message);
+    }
+  } else {
+    // Trigger background progression QUEUED -> RUNNING -> COMPLETED/FAILED
+    triggerBackupProgression(newBackup, user);
+  }
 
   return { data: newBackup, cached: false };
 }

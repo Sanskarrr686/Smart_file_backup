@@ -107,33 +107,47 @@ Base URL Path (BFF): `/api/v1/ui`
 When other teams deploy their microservices and Team D switches environment modes (`TEAM_A_MODE=real`, `TEAM_B_MODE=real`, `TEAM_C_MODE=real`), Team A, B, and C must provide the following HTTP endpoints:
 
 ### Team A (Backup Job Scheduler)
-- `GET {TEAM_A_BASE_URL}/api/v1/queue`
-  - Expected Response: `[ { "job_id": "string", "file_name": "string", "state": "RUNNING|QUEUED", "progress": number } ]`
-- `GET {TEAM_A_BASE_URL}/api/v1/metrics`
-  - Expected Response: `{ "active_jobs": number, "avg_wait_time_ms": number, "throughput_per_min": number }`
+- `GET {TEAM_A_BASE_URL}/api/v1/backup/jobs` -> List all backup/restore jobs
+- `POST {TEAM_A_BASE_URL}/api/v1/backup/jobs` -> Submit backup or restore job
+  - Required Headers: `Content-Type: application/json`, `Idempotency-Key: <value>`, `X-Correlation-ID: <value>`
+  - Request Body: `{ job_id, backup_id, user_id, file_id, backup_type: "BACKUP"|"RESTORE", source_path, preferred_window: "ANY"|"DAY"|"NIGHT", priority, estimated_duration_ms }`
+- `GET {TEAM_A_BASE_URL}/api/v1/backup/jobs/:jobId` -> Query job lifecycle status (`REQUESTED` -> `QUEUED` -> `CHUNKING` -> `DEDUPLICATING` -> `UPLOADING` -> `COMMITTED` -> `VERIFIED` -> `COMPLETED`)
+- `POST {TEAM_A_BASE_URL}/api/v1/backup/jobs/:jobId/cancel` -> Cancel active job
+- `GET {TEAM_A_BASE_URL}/api/v1/workers` -> List active worker nodes
+- `GET {TEAM_A_BASE_URL}/api/v1/workers/:workerId/queue` -> Query specific worker queue
+- `GET {TEAM_A_BASE_URL}/api/v1/metrics/backup` -> Scheduler performance KPIs
+- `GET {TEAM_A_BASE_URL}/api/v1/stream/backup` -> Real-time SSE stream of job execution events
 
 ### Team B (Deduplication & Integrity Engine)
-- `GET {TEAM_B_BASE_URL}/api/v1/backups/:backupId/dedup`
-  - Expected Response: `{ "dedup_result_id": "string", "unique_chunks": number, "duplicate_chunks": number, "savings_ratio": number }`
-- `GET {TEAM_B_BASE_URL}/api/v1/backups/:backupId/verification`
-  - Expected Response: `{ "merkle_root": "string", "verified_chunks": number, "corrupted_chunks": number, "status": "VERIFIED|CORRUPTED" }`
+- `GET {TEAM_B_BASE_URL}/api/v1/chunks/index` -> Chunk index coverage and status
+- `POST {TEAM_B_BASE_URL}/api/v1/dedup/compute` -> Compute deduplication result from file/chunk hashes
+- `GET {TEAM_B_BASE_URL}/api/v1/dedup/:resultId` -> Fetch stored deduplication result by result ID
+- `POST {TEAM_B_BASE_URL}/api/v1/integrity/verify` -> Verify chunk integrity vs Merkle root
+- `GET {TEAM_B_BASE_URL}/api/v1/metrics/dedup` -> Deduplication index, benchmark, and timing metrics
 
 ### Team C (System of Record: Metadata, Version & Restore Manager)
-- `GET {TEAM_C_BASE_URL}/api/v1/files?user_id=...&role=...`
-- `POST {TEAM_C_BASE_URL}/api/v1/files`
-  - Body: `{ file_id, name, type, size_bytes, size_kb, content_type, owner_id, storage_provider, storage_bucket, storage_key, checksum, uploaded_at }`
-- `GET {TEAM_C_BASE_URL}/api/v1/files/:fileId`
-- `GET {TEAM_C_BASE_URL}/api/v1/files/:fileId/versions`
-- `GET {TEAM_C_BASE_URL}/api/v1/backups?user_id=...&role=...`
-- `GET {TEAM_C_BASE_URL}/api/v1/backups/:backupId`
-- `POST {TEAM_C_BASE_URL}/api/v1/backups` -> Body: `{ file_id, file_name, user_id }`
-- `GET {TEAM_C_BASE_URL}/api/v1/restores?user_id=...&role=...`
-- `GET {TEAM_C_BASE_URL}/api/v1/restores/:restoreId`
-- `POST {TEAM_C_BASE_URL}/api/v1/restores` -> Body: `{ file_id, version_id, user_id }`
-- `GET {TEAM_C_BASE_URL}/api/v1/reports/storage`
-- `GET {TEAM_C_BASE_URL}/api/v1/audit`
-- `GET {TEAM_C_BASE_URL}/api/v1/users`
-- `POST {TEAM_C_BASE_URL}/api/v1/users`
-- `PATCH {TEAM_C_BASE_URL}/api/v1/users/:userId/status`
-- `POST {TEAM_C_BASE_URL}/api/v1/users/:userId/reset-password`
+#### Confirmed Endpoints:
+- `GET {TEAM_C_BASE_URL}/api/v1/files?user_id=...&role=...` -> Filtered file index
+- `POST {TEAM_C_BASE_URL}/api/v1/files` -> Register file metadata
+- `GET {TEAM_C_BASE_URL}/api/v1/files/:fileId` -> Single file details
+- `PATCH {TEAM_C_BASE_URL}/api/v1/files/:fileId` -> Update file metadata
+- `DELETE {TEAM_C_BASE_URL}/api/v1/files/:fileId` -> Delete file record
+- `GET {TEAM_C_BASE_URL}/api/v1/files/:fileId/versions` -> File versions history
+- `GET {TEAM_C_BASE_URL}/api/v1/files/:fileId/retention` -> Retention policy details
+- `GET {TEAM_C_BASE_URL}/api/v1/versions/:versionId/chunks` -> Version chunk mapping
+- `POST {TEAM_C_BASE_URL}/api/v1/backups` -> Register backup metadata
+- `GET {TEAM_C_BASE_URL}/api/v1/backups/:backupId` -> Get backup record by ID
+- `POST {TEAM_C_BASE_URL}/api/v1/backups/:backupId/cancel` -> Cancel backup record
+- `GET {TEAM_C_BASE_URL}/api/v1/reports/storage` -> Aggregate storage report
+- `GET {TEAM_C_BASE_URL}/api/v1/audit` -> Audit trail log
+- `GET {TEAM_C_BASE_URL}/api/v1/users` -> List system users
+- `POST {TEAM_C_BASE_URL}/api/v1/users` -> Create system user
+- `PATCH {TEAM_C_BASE_URL}/api/v1/users/:userId/status` -> Update user status
+- `POST {TEAM_C_BASE_URL}/api/v1/users/:userId/reset-password` -> Reset user password
+
+#### Pending / Unconfirmed Endpoints (Handled with Graceful Degraded Fallbacks):
+- `GET {TEAM_C_BASE_URL}/api/v1/backups` -> List-all backups (returns `{ items: [], upstream_unavailable: true }` when unreleased)
+- `GET {TEAM_C_BASE_URL}/api/v1/restores` -> List restore operations (returns `{ items: [], upstream_unavailable: true }` when unreleased)
+- `GET {TEAM_C_BASE_URL}/api/v1/restores/:restoreId` -> Query single restore operation status
+- `POST {TEAM_C_BASE_URL}/internal/v1/restores/commit` -> Commit restore operation
 
