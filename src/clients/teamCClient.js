@@ -15,40 +15,120 @@ const {
 } = require("../mocks/teamC");
 
 const usersMock = require("../mocks/users");
+const identityAdapter = require("../utils/identityAdapter");
 
-function makeHeaders(options = {}) {
+function makeHeaders(arg1, arg2) {
+  let user = null;
+  let userId = null;
+  let role = null;
+  let options = {};
+
+  if (arg1 && typeof arg1 === "object" && (arg1.user_id || arg1.role)) {
+    user = arg1;
+    options = arg2 || {};
+  } else if (typeof arg1 === "string" || typeof arg1 === "number") {
+    userId = arg1;
+    if (typeof arg2 === "string") {
+      role = arg2;
+      options = {};
+    } else if (typeof arg2 === "object") {
+      options = arg2;
+    }
+  } else if (arg1 && typeof arg1 === "object") {
+    options = arg1;
+  }
+
+  if (arg2 && typeof arg2 === "object" && !user) {
+    if (arg2.user) user = arg2.user;
+    if (arg2.userId) userId = arg2.userId;
+    if (arg2.role) role = arg2.role;
+  }
+
+  if (options && options.user) {
+    user = options.user;
+  }
+
   const headers = {};
-  if (options.correlationId) {
+
+  if (options && options.correlationId) {
     headers["X-Correlation-ID"] = options.correlationId;
   }
+
+  if (config.teamC.mode === "real" || config.teamC.mode === "live") {
+    const secret = config.teamC.serviceSecret || process.env.TEAM_C_SERVICE_SECRET || process.env.TEAM_D_SERVICE_SECRET;
+    if (!secret) {
+      const err = new Error("TEAM_C_SERVICE_SECRET (or TEAM_D_SERVICE_SECRET) is required for live Team C requests but is not configured.");
+      err.status = 500;
+      err.code = "CONFIG_ERROR";
+      throw err;
+    }
+
+    headers["Authorization"] = `Bearer ${secret}`;
+
+    if (user) {
+      const numericUserId = identityAdapter.getRequiredTeamCUserId(user);
+      headers["X-TeamC-User-Id"] = String(numericUserId);
+      headers["X-TeamC-Role"] = user.role || role || options.role || "Employee";
+    } else if (userId !== null && userId !== undefined) {
+      const numericUserId = Number(userId);
+      const finalUserId = Number.isInteger(numericUserId) && numericUserId > 0
+        ? numericUserId
+        : identityAdapter.getRequiredTeamCUserId({ user_id: userId, role: role || options.role });
+      headers["X-TeamC-User-Id"] = String(finalUserId);
+      headers["X-TeamC-Role"] = role || options.role || "Employee";
+    } else if (options.userId) {
+      headers["X-TeamC-User-Id"] = String(options.userId);
+      headers["X-TeamC-Role"] = options.role || role || "Employee";
+    }
+  }
+
   return headers;
 }
 
-async function getFiles(userId, role, options = {}) {
+function unwrapResponse(res) {
+  if (res && typeof res === "object" && res.data !== undefined) {
+    return res.data;
+  }
+  return res;
+}
+
+async function getFiles(userOrUserId, roleOrOptions, options = {}) {
+  let userId = userOrUserId;
+  let role = roleOrOptions;
+  let opts = options;
+
+  if (userOrUserId && typeof userOrUserId === "object") {
+    userId = userOrUserId.user_id;
+    role = userOrUserId.role;
+    opts = roleOrOptions || {};
+  }
+
   if (config.teamC.mode === "mock") {
     if (role === "IT Admin" || role === "Auditor") {
       return files;
     }
-    return files.filter((f) => f.owner_id === userId);
+    return files.filter((f) => String(f.owner_id) === String(userId));
   }
 
-  return request(
+  const res = await request(
     `${config.teamC.baseUrl}/api/v1/files?user_id=${encodeURIComponent(
-      userId
-    )}&role=${encodeURIComponent(role)}`,
-    { headers: makeHeaders(options) }
+      userId || ""
+    )}&role=${encodeURIComponent(role || "")}`,
+    { headers: makeHeaders(userOrUserId && typeof userOrUserId === "object" ? userOrUserId : { userId, role }, opts) }
   );
+  return unwrapResponse(res);
 }
 
 async function getFile(fileId, options = {}) {
   if (config.teamC.mode === "mock") {
-    return files.find((f) => f.file_id === fileId) || null;
+    return files.find((f) => String(f.file_id) === String(fileId)) || null;
   }
 
-  return request(
+  const res = await request(
     `${config.teamC.baseUrl}/api/v1/files/${encodeURIComponent(fileId)}`,
     { headers: makeHeaders(options) }
   );
+  return unwrapResponse(res);
 }
 
 async function updateFile(fileId, updateData, options = {}) {
@@ -131,22 +211,33 @@ async function getVersionChunks(versionId, options = {}) {
   );
 }
 
-async function getBackups(userId, role, options = {}) {
+async function getBackups(userOrUserId, roleOrOptions, options = {}) {
+  let userId = userOrUserId;
+  let role = roleOrOptions;
+  let opts = options;
+
+  if (userOrUserId && typeof userOrUserId === "object") {
+    userId = userOrUserId.user_id;
+    role = userOrUserId.role;
+    opts = roleOrOptions || {};
+  }
+
   if (config.teamC.mode === "mock") {
     if (role === "IT Admin" || role === "Auditor") {
       return backups;
     }
-    return backups.filter((b) => b.user_id === userId);
+    return backups.filter((b) => String(b.user_id) === String(userId));
   }
 
   // UNCONFIRMED endpoint: GET /api/v1/backups
   try {
-    return await request(
+    const res = await request(
       `${config.teamC.baseUrl}/api/v1/backups?user_id=${encodeURIComponent(
-        userId
-      )}&role=${encodeURIComponent(role)}`,
-      { headers: makeHeaders(options) }
+        userId || ""
+      )}&role=${encodeURIComponent(role || "")}`,
+      { headers: makeHeaders(userOrUserId && typeof userOrUserId === "object" ? userOrUserId : { userId, role }, opts) }
     );
+    return unwrapResponse(res);
   } catch (err) {
     if (
       err.status === 404 ||
@@ -195,7 +286,7 @@ async function createBackup({ file_id, file_name, user_id }, options = {}) {
 
   return request(`${config.teamC.baseUrl}/api/v1/backups`, {
     method: "POST",
-    headers: makeHeaders(options),
+    headers: makeHeaders({ userId: user_id }, options),
     body: JSON.stringify({
       file_id,
       file_name,
@@ -222,22 +313,33 @@ async function cancelBackup(backupId, options = {}) {
   );
 }
 
-async function getRestores(userId, role, options = {}) {
+async function getRestores(userOrUserId, roleOrOptions, options = {}) {
+  let userId = userOrUserId;
+  let role = roleOrOptions;
+  let opts = options;
+
+  if (userOrUserId && typeof userOrUserId === "object") {
+    userId = userOrUserId.user_id;
+    role = userOrUserId.role;
+    opts = roleOrOptions || {};
+  }
+
   if (config.teamC.mode === "mock") {
     if (role === "IT Admin" || role === "Auditor") {
       return restores;
     }
-    return restores.filter((r) => r.user_id === userId);
+    return restores.filter((r) => String(r.user_id) === String(userId));
   }
 
   // UNCONFIRMED endpoint: GET /api/v1/restores
   try {
-    return await request(
+    const res = await request(
       `${config.teamC.baseUrl}/api/v1/restores?user_id=${encodeURIComponent(
-        userId
-      )}&role=${encodeURIComponent(role)}`,
-      { headers: makeHeaders(options) }
+        userId || ""
+      )}&role=${encodeURIComponent(role || "")}`,
+      { headers: makeHeaders(userOrUserId && typeof userOrUserId === "object" ? userOrUserId : { userId, role }, opts) }
     );
+    return unwrapResponse(res);
   } catch (err) {
     if (
       err.status === 404 ||
@@ -260,30 +362,41 @@ async function getRestore(restoreId, options = {}) {
     return restores.find((r) => r.restore_id === restoreId) || null;
   }
 
-  // UNCONFIRMED endpoint: GET /api/v1/restores/{restoreId}
-  try {
-    return await request(
-      `${config.teamC.baseUrl}/api/v1/restores/${encodeURIComponent(
-        restoreId
-      )}`,
-      { headers: makeHeaders(options) }
-    );
-  } catch (err) {
-    if (
-      err.status === 404 ||
-      err.status === 502 ||
-      err.code === "UPSTREAM_FAILURE" ||
-      err.code === "UPSTREAM_TIMEOUT"
-    ) {
-      return {
-        restore_id: restoreId,
-        state: "UNAVAILABLE",
-        upstream_unavailable: true,
-        reason: "Team C has not yet published this endpoint",
-      };
+  const pathsToTry = [
+    `/api/v1/restores/${encodeURIComponent(restoreId)}`,
+    `/api/v1/restore/${encodeURIComponent(restoreId)}`,
+    `/restore/${encodeURIComponent(restoreId)}`,
+  ];
+
+  let lastErr = null;
+  for (const path of pathsToTry) {
+    try {
+      const res = await request(`${config.teamC.baseUrl}${path}`, {
+        headers: makeHeaders(options),
+      });
+      return unwrapResponse(res);
+    } catch (err) {
+      lastErr = err;
+      if (err.status !== 404) break;
     }
-    throw err;
   }
+
+  if (
+    lastErr &&
+    (lastErr.status === 404 ||
+      lastErr.status === 502 ||
+      lastErr.code === "UPSTREAM_FAILURE" ||
+      lastErr.code === "UPSTREAM_TIMEOUT")
+  ) {
+    return {
+      restore_id: restoreId,
+      state: "UNAVAILABLE",
+      upstream_unavailable: true,
+      reason: "Team C has not yet published this endpoint",
+    };
+  }
+
+  throw lastErr;
 }
 
 async function createRestore({ file_id, version_id, user_id }, options = {}) {
@@ -580,6 +693,70 @@ async function registerFile(fileData, options = {}) {
   });
 }
 
+async function uploadFileMultipart(fileParams, options = {}) {
+  const { fileBuffer, fileName, userId, user, role, locationId, policyId, contentType } = fileParams;
+
+  if (config.teamC.mode === "mock") {
+    return registerFile({
+      name: fileName,
+      size_bytes: fileBuffer ? fileBuffer.length : 0,
+      owner_id: userId,
+      content_type: contentType || "application/octet-stream",
+      storage_provider: "mock",
+      storage_bucket: config.storage.bucket || "backup-files",
+      storage_key: `files/${fileName}`,
+    }, options);
+  }
+
+  const formData = new FormData();
+  const blob = new Blob([fileBuffer], { type: contentType || "application/octet-stream" });
+  formData.append("file", blob, fileName);
+  formData.append("user_id", String(userId));
+  formData.append("file_name", fileName);
+  if (locationId) formData.append("location_id", String(locationId));
+  if (policyId) formData.append("policy_id", String(policyId));
+
+  const headers = makeHeaders(user || { userId, role }, options);
+  delete headers["Content-Type"];
+
+  const res = await request(`${config.teamC.baseUrl}/api/v1/files`, {
+    method: "POST",
+    headers,
+    body: formData,
+  });
+
+  const payload = unwrapResponse(res);
+
+  if (!payload || (payload.file_id === undefined && payload.id === undefined)) {
+    const err = new Error("Team C upload response missing authoritative file_id.");
+    err.status = 502;
+    err.code = "UPSTREAM_FAILURE";
+    err.details = ["Upstream payload does not contain required file_id field."];
+    throw err;
+  }
+
+  const fileId = payload.file_id !== undefined ? payload.file_id : payload.id;
+  const objectKey = payload.object_key || payload.storage_key || payload.key;
+
+  if (!objectKey) {
+    const err = new Error("Team C upload response missing authoritative object_key.");
+    err.status = 502;
+    err.code = "UPSTREAM_FAILURE";
+    err.details = ["Upstream payload does not contain required object_key field."];
+    throw err;
+  }
+
+  return {
+    file_id: fileId,
+    object_key: objectKey,
+    file_name: payload.file_name || payload.name || fileName,
+    user_id: payload.user_id || payload.owner_id || userId,
+    size_bytes: payload.size_bytes || (fileBuffer ? fileBuffer.length : 0),
+    created_at: payload.created_at || payload.modified || new Date().toISOString(),
+    ...payload,
+  };
+}
+
 module.exports = {
   getFiles,
   getFile,
@@ -589,6 +766,7 @@ module.exports = {
   getFileRetention,
   getVersionChunks,
   registerFile,
+  uploadFileMultipart,
   getBackups,
   getBackup,
   createBackup,

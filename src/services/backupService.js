@@ -6,6 +6,7 @@ const teamAClient = require("../clients/teamAClient");
 const config = require("../config/env");
 const db = require("../utils/db");
 const sseManager = require("../utils/sse");
+const identityAdapter = require("../utils/identityAdapter");
 const auditService = require("./auditService");
 const notificationService = require("./notificationService");
 
@@ -19,7 +20,6 @@ function triggerBackupProgression(backup, user) {
     sseManager.broadcast({ type: "backup_updated", data: backup });
 
     const timer2 = setTimeout(async () => {
-      // Small random failure chance (e.g., 10%)
       const isFailed = Math.random() < 0.1;
       backup.state = isFailed ? "FAILED" : "COMPLETED";
       db.save();
@@ -30,7 +30,7 @@ function triggerBackupProgression(backup, user) {
         actor: user.username || user.name || "user",
         role: user.role,
         action: isFailed ? "BACKUP_FAILED" : "BACKUP_COMPLETED",
-        resource: backup.backup_id,
+        resource: String(backup.backup_id),
       }).catch(() => {});
 
       await notificationService.createNotification({
@@ -48,11 +48,22 @@ function triggerBackupProgression(backup, user) {
 }
 
 async function listBackups(user, options = {}) {
-  const res = await teamCClient.getBackups(user.user_id, user.role, options);
+  const userIdForTeamC = config.teamC.mode === "mock"
+    ? user.user_id
+    : identityAdapter.getRequiredTeamCUserId(user);
+
+  const res = await teamCClient.getBackups(userIdForTeamC, user.role, options);
   if (res && res.upstream_unavailable) {
     return res;
   }
-  return { items: Array.isArray(res) ? res : (res?.items || []) };
+
+  let items = Array.isArray(res) ? res : (res?.items || []);
+
+  if (user.role === "Employee") {
+    items = items.filter((b) => identityAdapter.matchesUser(b.user_id || b.owner_id, user));
+  }
+
+  return { items };
 }
 
 async function getBackupById(backupId, user) {
@@ -71,7 +82,7 @@ async function getBackupById(backupId, user) {
     throw err;
   }
 
-  if (user.role === "Employee" && backup.user_id !== user.user_id) {
+  if (user.role === "Employee" && !identityAdapter.matchesUser(backup.user_id || backup.owner_id, user)) {
     const err = new Error("You do not have permission to view this backup.");
     err.status = 403;
     err.code = "FORBIDDEN";
@@ -112,9 +123,10 @@ async function createBackup({ file_id, file_name, user }, idempotencyKey, option
     throw err;
   }
 
-  // Idempotency check: return cached payload if available
-  if (idempotencyStore.has(idempotencyKey)) {
-    return { data: idempotencyStore.get(idempotencyKey), cached: true };
+  const cacheKey = `${user.user_id}:${idempotencyKey}:${file_id}`;
+
+  if (idempotencyStore.has(cacheKey)) {
+    return { data: idempotencyStore.get(cacheKey), cached: true };
   }
 
   // Check file validity and ownership
@@ -126,39 +138,41 @@ async function createBackup({ file_id, file_name, user }, idempotencyKey, option
     throw err;
   }
 
-  if (user.role === "Employee" && file.owner_id !== user.user_id) {
+  if (user.role === "Employee" && !identityAdapter.matchesUser(file.owner_id || file.user_id, user)) {
     const err = new Error("You do not have permission to backup this file.");
     err.status = 403;
     err.code = "FORBIDDEN";
     throw err;
   }
 
+  const teamCUserId = config.teamC.mode === "mock"
+    ? user.user_id
+    : identityAdapter.getRequiredTeamCUserId(user);
+
   const newBackup = await teamCClient.createBackup({
-    file_id,
+    file_id: file.file_id || file_id,
     file_name,
-    user_id: user.user_id,
+    user_id: teamCUserId,
   }, options);
 
-  // Store in idempotency cache
-  idempotencyStore.set(idempotencyKey, newBackup);
+  idempotencyStore.set(cacheKey, newBackup);
 
-  // Record audit log for BACKUP_STARTED
   await auditService.recordEvent({
     actor: user.username || user.name || "user",
     role: user.role,
     action: "BACKUP_STARTED",
-    resource: newBackup.backup_id,
+    resource: String(newBackup.backup_id),
   }).catch(() => {});
 
-  if (config.teamA.mode === "real") {
+  if (config.teamA.mode === "real" || config.teamA.mode === "live") {
     try {
       await teamAClient.submitJob({
         job_id: `job_${newBackup.backup_id}`,
         backup_id: newBackup.backup_id,
-        user_id: user.user_id,
-        file_id,
+        user_id: teamCUserId,
+        file_id: file.file_id || file_id,
         backup_type: "BACKUP",
-        source_path: file.storage_key || `/files/${file_name}`,
+        source_path: file.storage_key || file.object_key || `/files/${file_name}`,
         preferred_window: "ANY",
         priority: "NORMAL",
         estimated_duration_ms: 5000,
@@ -167,7 +181,6 @@ async function createBackup({ file_id, file_name, user }, idempotencyKey, option
       console.error("Failed to submit backup job to Team A:", err.message);
     }
   } else {
-    // Trigger background progression QUEUED -> RUNNING -> COMPLETED/FAILED
     triggerBackupProgression(newBackup, user);
   }
 
@@ -180,4 +193,3 @@ module.exports = {
   createBackup,
   idempotencyStore,
 };
-

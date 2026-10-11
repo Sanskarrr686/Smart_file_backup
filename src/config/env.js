@@ -9,17 +9,21 @@ const config = {
 
   teamA: {
     mode: process.env.TEAM_A_MODE || "mock",
-    baseUrl: process.env.TEAM_A_BASE_URL || "",
+    baseUrl: process.env.TEAM_A_BASE_URL || "http://localhost:5001",
   },
 
   teamB: {
     mode: process.env.TEAM_B_MODE || "mock",
-    baseUrl: process.env.TEAM_B_BASE_URL || "",
+    baseUrl: process.env.TEAM_B_BASE_URL || "http://localhost:5002",
   },
 
   teamC: {
     mode: process.env.TEAM_C_MODE || "mock",
-    baseUrl: process.env.TEAM_C_BASE_URL || "",
+    baseUrl: process.env.TEAM_C_BASE_URL || "http://172.22.47.80:3000",
+    serviceSecret: process.env.TEAM_C_SERVICE_SECRET || process.env.TEAM_D_SERVICE_SECRET || "dev-service-secret-key-change-in-production-123456",
+    identityMap: process.env.TEAM_C_IDENTITY_MAP || null,
+    locationId: process.env.TEAM_C_LOCATION_ID || null,
+    policyId: process.env.TEAM_C_POLICY_ID || null,
   },
 
   jwtSecret: process.env.JWT_SECRET || "dev-jwt-secret-key-change-in-production-123456",

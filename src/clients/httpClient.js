@@ -9,13 +9,24 @@ async function request(url, options = {}) {
   }, timeoutMs);
 
   try {
+    const defaultHeaders = {};
+    if (!(options.body instanceof FormData)) {
+      defaultHeaders["Content-Type"] = "application/json";
+    }
+
+    const headers = {
+      ...defaultHeaders,
+      ...(options.headers || {}),
+    };
+
+    if (headers["Content-Type"] === undefined || headers["Content-Type"] === null) {
+      delete headers["Content-Type"];
+    }
+
     const response = await fetch(url, {
       ...options,
       signal: controller.signal,
-      headers: {
-        "Content-Type": "application/json",
-        ...(options.headers || {}),
-      },
+      headers,
     });
 
     const contentType = response.headers.get("content-type") || "";

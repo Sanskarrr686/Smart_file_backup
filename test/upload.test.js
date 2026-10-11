@@ -15,6 +15,8 @@ let adminToken;
 let auditorToken;
 
 test.before(async () => {
+  config.storage.mode = "mock";
+  config.storage.bucket = "backup-files";
   await new Promise((resolve) => {
     server = app.listen(0, "127.0.0.1", () => {
       const port = server.address().port;
