@@ -296,6 +296,48 @@
       "owner_id": "u_101",
       "storage_ref": {},
       "storage_status": "AVAILABLE"
+    },
+    {
+      "file_id": "f_b56b910b",
+      "name": "storage-test.txt",
+      "type": "file",
+      "size_kb": 0,
+      "size_bytes": 75,
+      "modified": "2026-10-11T15:34:40.917Z",
+      "versions": 1,
+      "owner_id": "u_101",
+      "storage_provider": "mock",
+      "storage_bucket": "smart-file-backup",
+      "storage_key": "files/2026/10/11/f_b56b910b/storage-test.txt",
+      "storage_ref": {
+        "provider": "mock",
+        "bucket": "smart-file-backup",
+        "key": "files/2026/10/11/f_b56b910b/storage-test.txt"
+      },
+      "checksum": "46c9593c23d924237bd9de16c2b64f2e80888b72a3e95f25c68bf8a98334bac5",
+      "content_type": "text/plain",
+      "storage_status": "AVAILABLE"
+    },
+    {
+      "file_id": "f_482b9d1c",
+      "name": "111.docx",
+      "type": "file",
+      "size_kb": 290,
+      "size_bytes": 296822,
+      "modified": "2026-10-12T01:22:13.547Z",
+      "versions": 1,
+      "owner_id": "u_101",
+      "storage_provider": "minio",
+      "storage_bucket": "smart-file-backup",
+      "storage_key": "files/2026/10/12/f_482b9d1c/111.docx",
+      "storage_ref": {
+        "provider": "minio",
+        "bucket": "smart-file-backup",
+        "key": "files/2026/10/12/f_482b9d1c/111.docx"
+      },
+      "checksum": "72ddd40638c40fc1c11cbcbf495495f1db954aa56ab165b8649eeaf5221fe17d",
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "storage_status": "AVAILABLE"
     }
   ],
   "fileVersions": {
@@ -470,6 +512,26 @@
         "size_kb": 0,
         "checksum": "sha256_mock_hash",
         "created_at": "2026-10-10T09:25:48.418Z"
+      }
+    ],
+    "f_b56b910b": [
+      {
+        "version_id": "v1",
+        "state": "CURRENT",
+        "size_kb": 0,
+        "checksum": "46c9593c23d924237bd9de16c2b64f2e80888b72a3e95f25c68bf8a98334bac5",
+        "created_at": "2026-10-11T15:34:40.917Z",
+        "storage_key": "files/2026/10/11/f_b56b910b/storage-test.txt"
+      }
+    ],
+    "f_482b9d1c": [
+      {
+        "version_id": "v1",
+        "state": "CURRENT",
+        "size_kb": 290,
+        "checksum": "72ddd40638c40fc1c11cbcbf495495f1db954aa56ab165b8649eeaf5221fe17d",
+        "created_at": "2026-10-12T01:22:13.547Z",
+        "storage_key": "files/2026/10/12/f_482b9d1c/111.docx"
       }
     ]
   },
@@ -2264,6 +2326,33 @@
     ]
   },
   "auditLog": [
+    {
+      "timestamp": "2026-10-12T01:22:13.549Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "FILE_UPLOADED",
+      "resource": "111.docx",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-11T15:34:40.921Z",
+      "user": "employee1",
+      "role": "Employee",
+      "action": "FILE_UPLOADED",
+      "resource": "storage-test.txt",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
+    {
+      "timestamp": "2026-10-11T12:30:24.688Z",
+      "user": "user",
+      "role": "Employee",
+      "action": "FILE_UPLOADED",
+      "resource": "report.pdf",
+      "result": "SUCCESS",
+      "correlation_id": "corr_sys"
+    },
     {
       "timestamp": "2026-10-10T09:57:28.254Z",
       "user": "employee1",
@@ -8032,6 +8121,42 @@
       "message": "Backup for 'budget.xlsx' failed during execution.",
       "type": "error",
       "timestamp": "2026-10-10T09:57:28.256Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_954228",
+      "title": "File Upload Failed",
+      "message": "Failed to upload 'report.pdf' to Team C: Team C upload response missing authoritative file_id.",
+      "type": "error",
+      "timestamp": "2026-10-11T12:30:24.690Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_1330a3",
+      "title": "File Upload Failed",
+      "message": "Failed to upload 'fileA.txt' to Team C: Upstream request timed out after 5000ms",
+      "type": "error",
+      "timestamp": "2026-10-11T12:30:29.700Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_9b35e9",
+      "title": "File Upload Failed",
+      "message": "Failed to upload 'Doc19.docx': Failed to initialize or verify shared storage bucket 'smart-file-backup': Valid and authorized credentials required",
+      "type": "error",
+      "timestamp": "2026-10-12T01:12:48.112Z",
+      "read": false,
+      "user_id": "u_101"
+    },
+    {
+      "id": "notif_c77ed8",
+      "title": "File Upload Failed",
+      "message": "Failed to upload 'Doc19.docx': Failed to initialize or verify shared storage bucket 'smart-file-backup': Valid and authorized credentials required",
+      "type": "error",
+      "timestamp": "2026-10-12T01:13:03.797Z",
       "read": false,
       "user_id": "u_101"
     }

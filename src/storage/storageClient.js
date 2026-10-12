@@ -1,16 +1,20 @@
-// src/storage/storageClient.js
-// Storage client abstraction factory
 
 const config = require("../config/env");
 const mockStorage = require("./mockStorage");
 const minioStorage = require("./minioStorage");
 
 function getStorageAdapter() {
-  const mode = (config.storage && config.storage.mode) ? config.storage.mode.toLowerCase() : "mock";
-  if (mode === "minio") {
+  const mode = String(config.storage?.mode || "mock").toLowerCase();
+
+  if (mode === "minio" || mode === "real" || mode === "b2") {
     return minioStorage;
   }
-  return mockStorage;
+
+  if (mode === "mock") {
+    return mockStorage;
+  }
+
+  throw new Error(`Unsupported STORAGE_MODE: ${mode}`);
 }
 
 module.exports = {
