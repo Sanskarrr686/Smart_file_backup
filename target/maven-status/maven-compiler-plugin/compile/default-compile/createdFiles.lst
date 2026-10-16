@@ -15,15 +15,18 @@ com\apnileap\scheduler\entity\WorkerState.class
 com\apnileap\scheduler\dto\ApiErrorResponse$ErrorDetail.class
 com\apnileap\scheduler\dto\ApiResponse$ApiResponseBuilder.class
 com\apnileap\scheduler\entity\BackupType.class
+com\apnileap\scheduler\controller\HealthController.class
 com\apnileap\scheduler\dto\ApiErrorResponse$ApiErrorResponseBuilder.class
 com\apnileap\scheduler\service\JobService.class
 com\apnileap\scheduler\service\WorkerService.class
+com\apnileap\scheduler\config\ClockConfig.class
 com\apnileap\scheduler\entity\Worker.class
 com\apnileap\scheduler\dto\AcquireLockRequest.class
 com\apnileap\scheduler\controller\InternalDeadlockController.class
 com\apnileap\scheduler\controller\MetricsController.class
 com\apnileap\scheduler\config\WebConfig$1.class
 com\apnileap\scheduler\config\WebConfig.class
+com\apnileap\scheduler\scheduler\PreferredWindowPolicy.class
 com\apnileap\scheduler\entity\LockMode.class
 com\apnileap\scheduler\mapper\JobMapper.class
 com\apnileap\scheduler\controller\WorkerController.class
@@ -38,6 +41,7 @@ com\apnileap\scheduler\dto\BackupJobRequest.class
 com\apnileap\scheduler\DataSeeder.class
 com\apnileap\scheduler\entity\Lease.class
 com\apnileap\scheduler\SchedulerApplication.class
+com\apnileap\scheduler\service\JobService$1.class
 com\apnileap\scheduler\repository\IdempotencyRecordRepository.class
 com\apnileap\scheduler\controller\BaseController.class
 com\apnileap\scheduler\entity\WaitForEdge$WaitForEdgeBuilder.class
