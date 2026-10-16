@@ -5,15 +5,17 @@ import com.apnileap.scheduler.entity.Lease;
 import com.apnileap.scheduler.lock.LockService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/internal/v1/locks")
-@RequiredArgsConstructor
 public class InternalLockController extends BaseController {
     private final LockService lockService;
+
+    public InternalLockController(LockService lockService) {
+        this.lockService = lockService;
+    }
 
     @PostMapping("/acquire")
     public ApiResponse<Lease> acquireLock(

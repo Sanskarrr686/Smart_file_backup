@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
                 .build();
         return buildResponse(HttpStatus.BAD_REQUEST, error, correlationId);
     }
-    
+
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ApiErrorResponse> handleBusinessException(BusinessException ex, HttpServletRequest request) {
         String correlationId = (String) request.getAttribute("correlationId");

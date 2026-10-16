@@ -4,15 +4,17 @@ import com.apnileap.scheduler.dto.SchedulerRunRequest;
 import com.apnileap.scheduler.service.SchedulerService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/internal/v1/scheduler")
-@RequiredArgsConstructor
 public class InternalSchedulerController extends BaseController {
     private final SchedulerService schedulerService;
+
+    public InternalSchedulerController(SchedulerService schedulerService) {
+        this.schedulerService = schedulerService;
+    }
 
     @PostMapping("/run")
     public ApiResponse<Map<String, String>> runScheduler(

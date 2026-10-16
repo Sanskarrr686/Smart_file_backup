@@ -1,16 +1,18 @@
 package com.apnileap.scheduler.scheduler;
 
 import com.apnileap.scheduler.entity.BackupJob;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Clock;
 import java.time.LocalTime;
 
 @Component
-@RequiredArgsConstructor
 public class PreferredWindowPolicy {
     private final Clock clock;
+
+    public PreferredWindowPolicy(Clock clock) {
+        this.clock = clock;
+    }
 
     public boolean allows(BackupJob job) {
         String window = job.getPreferredWindow();

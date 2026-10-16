@@ -15,7 +15,6 @@ import com.apnileap.scheduler.repository.SchedulingDecisionRepository;
 import com.apnileap.scheduler.repository.WorkerRepository;
 import com.apnileap.scheduler.scheduler.PreferredWindowPolicy;
 import com.apnileap.scheduler.scheduler.SchedulingStrategy;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -28,7 +27,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class SchedulerService {
     private final BackupJobRepository jobRepo;
@@ -38,7 +36,20 @@ public class SchedulerService {
     private final LockService lockService;
     private final PreferredWindowPolicy windowPolicy;
     private final List<SchedulingStrategy> strategies;
-    private final AtomicBoolean running = new AtomicBoolean(false);
+    private AtomicBoolean running = new AtomicBoolean(false);
+
+    public SchedulerService(BackupJobRepository jobRepo, WorkerRepository workerRepo,
+                            SchedulingDecisionRepository decisionRepo, WorkerService workerService,
+                            LockService lockService, PreferredWindowPolicy windowPolicy,
+                            List<SchedulingStrategy> strategies) {
+        this.jobRepo = jobRepo;
+        this.workerRepo = workerRepo;
+        this.decisionRepo = decisionRepo;
+        this.workerService = workerService;
+        this.lockService = lockService;
+        this.windowPolicy = windowPolicy;
+        this.strategies = strategies;
+    }
 
     @Value("${scheduler.auto-run.enabled:true}")
     private boolean autoRunEnabled;

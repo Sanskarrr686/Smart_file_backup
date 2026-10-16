@@ -11,7 +11,6 @@ import com.apnileap.scheduler.metrics.MetricsService;
 import com.apnileap.scheduler.repository.BackupJobRepository;
 import com.apnileap.scheduler.repository.LeaseRepository;
 import com.apnileap.scheduler.repository.WaitForEdgeRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -23,12 +22,19 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class LockService {
     private final LeaseRepository leaseRepo;
     private final WaitForEdgeRepository edgeRepo;
     private final BackupJobRepository jobRepo;
     private final MetricsService metricsService;
+
+    public LockService(LeaseRepository leaseRepo, WaitForEdgeRepository edgeRepo,
+                       BackupJobRepository jobRepo, MetricsService metricsService) {
+        this.leaseRepo = leaseRepo;
+        this.edgeRepo = edgeRepo;
+        this.jobRepo = jobRepo;
+        this.metricsService = metricsService;
+    }
 
     @Value("${scheduler.lease.default-timeout-ms:30000}")
     private long defaultTimeoutMs;

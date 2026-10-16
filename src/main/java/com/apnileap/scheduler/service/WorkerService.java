@@ -10,7 +10,6 @@ import com.apnileap.scheduler.metrics.MetricsService;
 import com.apnileap.scheduler.repository.BackupJobRepository;
 import com.apnileap.scheduler.repository.WorkerRepository;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
@@ -21,7 +20,6 @@ import java.util.Map;
 import java.util.Set;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class WorkerService {
     private static final Set<JobState> TERMINAL = Set.of(
@@ -32,6 +30,16 @@ public class WorkerService {
     private final LockService lockService;
     private final MetricsService metricsService;
     private final SseService sseService;
+
+    public WorkerService(WorkerRepository workerRepo, BackupJobRepository jobRepo,
+                         LockService lockService, MetricsService metricsService,
+                         SseService sseService) {
+        this.workerRepo = workerRepo;
+        this.jobRepo = jobRepo;
+        this.lockService = lockService;
+        this.metricsService = metricsService;
+        this.sseService = sseService;
+    }
 
     @Value("${scheduler.workers.initial-count:3}")
     private int initialWorkerCount;
@@ -112,8 +120,8 @@ public class WorkerService {
     private void failJob(BackupJob job, Worker worker, String reason) {
         if (!TERMINAL.contains(job.getState())) {
             job.setState(JobState.FAILED);
-            job.setCompletedAt(Instant.now());
             job.setAssignedWorkerId(null);
+            job.setCompletedAt(Instant.now());
             releaseLease(job);
             jobRepo.save(job);
             publish(job);

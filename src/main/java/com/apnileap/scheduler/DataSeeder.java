@@ -4,7 +4,6 @@ import com.apnileap.scheduler.entity.BackupType;
 import com.apnileap.scheduler.entity.JobState;
 import com.apnileap.scheduler.repository.BackupJobRepository;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import java.time.Instant;
@@ -12,9 +11,12 @@ import java.util.UUID;
 
 @Component
 @Profile("!test")
-@RequiredArgsConstructor
 public class DataSeeder {
     private final BackupJobRepository jobRepo;
+
+    public DataSeeder(BackupJobRepository jobRepo) {
+        this.jobRepo = jobRepo;
+    }
 
     @PostConstruct
     public void seed() {

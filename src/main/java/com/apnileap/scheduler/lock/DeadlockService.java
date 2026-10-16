@@ -9,7 +9,6 @@ import com.apnileap.scheduler.metrics.MetricsService;
 import com.apnileap.scheduler.repository.BackupJobRepository;
 import com.apnileap.scheduler.repository.WaitForEdgeRepository;
 import com.apnileap.scheduler.repository.WorkerRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,6 @@ import java.util.Map;
 import java.util.Set;
 
 @Service
-@RequiredArgsConstructor
 public class DeadlockService {
     private final WaitForEdgeRepository edgeRepo;
     private final BackupJobRepository jobRepo;
@@ -34,6 +32,17 @@ public class DeadlockService {
     private final LockService lockService;
     private final MetricsService metricsService;
     private final SseService sseService;
+
+    public DeadlockService(WaitForEdgeRepository edgeRepo, BackupJobRepository jobRepo,
+                           WorkerRepository workerRepo, LockService lockService,
+                           MetricsService metricsService, SseService sseService) {
+        this.edgeRepo = edgeRepo;
+        this.jobRepo = jobRepo;
+        this.workerRepo = workerRepo;
+        this.lockService = lockService;
+        this.metricsService = metricsService;
+        this.sseService = sseService;
+    }
 
     @Value("${scheduler.deadlock.enabled:true}")
     private boolean scanEnabled;

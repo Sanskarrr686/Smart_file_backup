@@ -5,9 +5,18 @@ import lombok.*;
 @Entity
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Worker {
+    public Worker() {
+        super();
+    }
+
+    public Worker(String workerId, WorkerState state, String currentJobId, Long totalBusyMs) {
+        super();
+        this.workerId = workerId;
+        this.state = state;
+        this.currentJobId = currentJobId;
+        this.totalBusyMs = totalBusyMs;
+    }
     @Id
     private String workerId;
     

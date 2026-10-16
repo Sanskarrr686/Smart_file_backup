@@ -15,8 +15,8 @@ import com.apnileap.scheduler.repository.IdempotencyRecordRepository;
 import com.apnileap.scheduler.repository.WaitForEdgeRepository;
 import com.apnileap.scheduler.repository.WorkerRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +28,6 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@RequiredArgsConstructor
 public class JobService {
     private static final Set<JobState> TERMINAL = Set.of(
             JobState.COMPLETED, JobState.CANCELLED, JobState.FAILED, JobState.REJECTED);
@@ -42,13 +41,27 @@ public class JobService {
     private final SseService sseService;
     private final ObjectMapper objectMapper;
 
+    public JobService(BackupJobRepository jobRepo, IdempotencyRecordRepository idempotencyRepo,
+                      WorkerRepository workerRepo, WaitForEdgeRepository edgeRepo,
+                      LockService lockService, JobMapper jobMapper,
+                      SseService sseService, ObjectMapper objectMapper) {
+        this.jobRepo = jobRepo;
+        this.idempotencyRepo = idempotencyRepo;
+        this.workerRepo = workerRepo;
+        this.edgeRepo = edgeRepo;
+        this.lockService = lockService;
+        this.jobMapper = jobMapper;
+        this.sseService = sseService;
+        this.objectMapper = objectMapper;
+    }
+
     @Transactional
     public Map<String, Object> submitJob(BackupJobRequest request, String correlationId, String idempotencyKey) {
         if (idempotencyKey != null) {
             Optional<IdempotencyRecord> existing = idempotencyRepo.findById(idempotencyKey);
             if (existing.isPresent()) {
                 try {
-                    return objectMapper.readValue(existing.get().getOriginalResponse(), Map.class);
+                    return objectMapper.readValue(existing.get().getOriginalResponse(), new TypeReference<Map<String, Object>>() {});
                 } catch (JsonProcessingException e) {
                     throw new RuntimeException(e);
                 }
@@ -107,7 +120,7 @@ public class JobService {
         return terminate(jobId, JobState.FAILED, reason == null ? "Job failed" : reason);
     }
 
-    private BackupJob terminate(String jobId, JobState target, String ignoredReason) {
+    private BackupJob terminate(String jobId, JobState target, String reason) {
         BackupJob job = getJob(jobId);
         if (TERMINAL.contains(job.getState())) {
             throw new BusinessException("INVALID_STATE", "Job is already " + job.getState());

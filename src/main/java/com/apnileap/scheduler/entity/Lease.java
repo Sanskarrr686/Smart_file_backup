@@ -6,9 +6,22 @@ import java.time.Instant;
 @Entity
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Lease {
+    public Lease() {
+        super();
+    }
+
+    public Lease(String leaseId, String fileId, String holderId, LockMode lockMode,
+                 LeaseState state, Instant acquiredAt, Instant expiresAt) {
+        super();
+        this.leaseId = leaseId;
+        this.fileId = fileId;
+        this.holderId = holderId;
+        this.lockMode = lockMode;
+        this.state = state;
+        this.acquiredAt = acquiredAt;
+        this.expiresAt = expiresAt;
+    }
     @Id
     private String leaseId;
     

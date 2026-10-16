@@ -5,15 +5,17 @@ import com.apnileap.scheduler.entity.BackupJob;
 import com.apnileap.scheduler.service.JobService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/backup/jobs")
-@RequiredArgsConstructor
 public class BackupController extends BaseController {
     private final JobService jobService;
+
+    public BackupController(JobService jobService) {
+        this.jobService = jobService;
+    }
 
     @PostMapping
     public ApiResponse<Map<String, Object>> submitJob(
