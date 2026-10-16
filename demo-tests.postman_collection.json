@@ -1,0 +1,47 @@
+{
+  "info": {
+    "name": "Smart File Backup System - Demo Smoke Tests",
+    "description": "Seven read-only API checks. Set baseUrl to the reachable backend host before running.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" }
+  ],
+  "item": [
+    {
+      "name": "Database health",
+      "request": { "method": "GET", "url": "{{baseUrl}}/test-db" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status is 200', () => pm.response.to.have.status(200));", "pm.test('Success envelope contains data and API version', () => { const body = pm.response.json(); pm.expect(body).to.have.property('data'); pm.expect(body.meta.api_version).to.eql('v1'); });"] } }]
+    },
+    {
+      "name": "List files",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/files" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status is 200', () => pm.response.to.have.status(200));", "pm.test('Response data is an array', () => pm.expect(pm.response.json().data).to.be.an('array')); "] } }]
+    },
+    {
+      "name": "File versions for file 1",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/files/1/versions" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status is 200', () => pm.response.to.have.status(200));", "pm.test('Response has standard envelope', () => { const body = pm.response.json(); pm.expect(body).to.have.property('data'); pm.expect(body).to.have.property('meta'); });"] } }]
+    },
+    {
+      "name": "Version chunks for version 1",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/versions/1/chunks" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status is 200', () => pm.response.to.have.status(200));", "pm.test('Chunk data is an array', () => pm.expect(pm.response.json().data).to.be.an('array')); "] } }]
+    },
+    {
+      "name": "Storage report",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/reports/storage" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status is 200', () => pm.response.to.have.status(200));", "pm.test('Response data is an array', () => pm.expect(pm.response.json().data).to.be.an('array')); "] } }]
+    },
+    {
+      "name": "Existing backup 1",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/backups/1" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status is 200', () => pm.response.to.have.status(200));", "pm.test('Backup ID is 1', () => pm.expect(pm.response.json().data.backup_id).to.eql(1));"] } }]
+    },
+    {
+      "name": "Missing backup returns 404",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/backups/999999" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('Status is 404', () => pm.response.to.have.status(404));", "pm.test('Error envelope is present', () => pm.expect(pm.response.json()).to.have.property('error')); "] } }]
+    }
+  ]
+}
