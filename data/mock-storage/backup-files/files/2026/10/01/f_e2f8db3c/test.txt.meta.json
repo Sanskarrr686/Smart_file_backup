@@ -1,0 +1,10 @@
+{
+  "bucket": "backup-files",
+  "key": "files/2026/10/01/f_e2f8db3c/test.txt",
+  "contentType": "text/plain",
+  "metadata": {},
+  "size": 7,
+  "checksum": "c9a99a61e7658917ebd246d8d9c857fc5633477df6a30246c6568be39824fc50",
+  "etag": "\"9ab21593c05fea269dba808e08f2e71d\"",
+  "uploadedAt": "2026-10-01T17:04:16.696Z"
+}

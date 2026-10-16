@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "backend",
   "version": "1.0.0",
   "description": "",
@@ -23,3 +24,27 @@
     "swagger-ui-express": "^5.0.1"
   }
 }
+=======
+  "name": "team-d-bff",
+  "version": "1.0.0",
+  "description": "Team D Backend-for-Frontend - Smart File Backup System",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "safe-start": "cd frontend && npm install && npm run build && cd .. && npm install && npm start",
+    "dev": "node src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.4",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "minio": "^8.0.7",
+    "multer": "^2.4.0"
+  }
+}
+>>>>>>> d9b8ed3ac771aa4c37086d8cccb595af08382000

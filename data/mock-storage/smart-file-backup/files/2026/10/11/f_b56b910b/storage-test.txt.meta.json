@@ -1,0 +1,10 @@
+{
+  "bucket": "smart-file-backup",
+  "key": "files/2026/10/11/f_b56b910b/storage-test.txt",
+  "contentType": "text/plain",
+  "metadata": {},
+  "size": 75,
+  "checksum": "46c9593c23d924237bd9de16c2b64f2e80888b72a3e95f25c68bf8a98334bac5",
+  "etag": "\"f6342d8bcc8b384e73c567a16ff71498\"",
+  "uploadedAt": "2026-10-11T15:34:40.911Z"
+}

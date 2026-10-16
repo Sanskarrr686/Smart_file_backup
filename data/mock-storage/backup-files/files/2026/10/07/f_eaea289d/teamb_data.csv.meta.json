@@ -1,0 +1,10 @@
+{
+  "bucket": "backup-files",
+  "key": "files/2026/10/07/f_eaea289d/teamb_data.csv",
+  "contentType": "application/octet-stream",
+  "metadata": {},
+  "size": 16,
+  "checksum": "9ca691e74d69c7e66e268816ed0c1a2e057b8dd79e3435dd38849f20f18a02af",
+  "etag": "\"013093b528fd38ce4fa2b5bd233ec89f\"",
+  "uploadedAt": "2026-10-07T05:23:42.804Z"
+}

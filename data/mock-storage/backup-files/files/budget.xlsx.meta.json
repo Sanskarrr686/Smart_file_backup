@@ -1,0 +1,10 @@
+{
+  "bucket": "backup-files",
+  "key": "files/budget.xlsx",
+  "contentType": "application/octet-stream",
+  "metadata": {},
+  "size": 36,
+  "checksum": "e590df5ef3c92d0a44f6bd89860b003d136276cef9c86912cd8b3d26f1d753f0",
+  "etag": "\"d6884b2f46309b425e59c59abb018909\"",
+  "uploadedAt": "2026-10-01T16:09:21.774Z"
+}

@@ -1,0 +1,10 @@
+{
+  "bucket": "backup-files",
+  "key": "files/design_assets.zip",
+  "contentType": "application/octet-stream",
+  "metadata": {},
+  "size": 34,
+  "checksum": "70e16700fdda64658a4159267117302f14dd40db689f08cf73ea0e68ff77579e",
+  "etag": "\"d5c63f426b1adfc4f986e416e03899ab\"",
+  "uploadedAt": "2026-10-01T16:09:21.809Z"
+}
